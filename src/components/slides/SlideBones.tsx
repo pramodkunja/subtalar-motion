@@ -6,6 +6,13 @@ import { ContentCard } from "@/components/presentation/ContentCard";
 import bonesImage from "@/assets/talus-calcaneus.jpg";
 
 export const SlideBones = () => {
+  const extendedPoints = [
+    "The talus transmits body weight from the tibia to the foot",
+    "The calcaneus forms the heel and provides leverage for walking",
+    "The articulation between these bones forms the subtalar joint",
+    "Their unique shapes allow controlled rotational movement"
+  ];
+
   return (
     <SlideSection id="bones" bgVariant="subtle">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -58,6 +65,20 @@ export const SlideBones = () => {
                 </div>
               </div>
             </ContentCard>
+          </div>
+
+          {/* Extended Matter */}
+          <div className="mt-4 p-4 rounded-xl bg-card border border-border/50">
+            <div className="space-y-2">
+              {extendedPoints.map((point, index) => (
+                <AnimatedText key={index} delay={0.5 + index * 0.1}>
+                  <p className="text-sm text-muted-foreground flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0" />
+                    {point}
+                  </p>
+                </AnimatedText>
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -33,6 +33,13 @@ export const SlideClinical = () => {
     }
   ];
 
+  const extendedPoints = [
+    "Subtalar arthritis causes pain and restricted movement",
+    "Excessive pronation can lead to flat foot deformity",
+    "Commonly involved in ankle sprains",
+    "Frequently assessed in orthopedic and physiotherapy practice"
+  ];
+
   return (
     <SlideSection id="clinical">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -66,6 +73,24 @@ export const SlideClinical = () => {
               </motion.div>
             ))}
           </div>
+
+          {/* Extended Matter */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
+            className="mt-4 p-4 rounded-xl bg-muted/50 border border-border/50"
+          >
+            <h4 className="text-sm font-semibold text-foreground mb-3 uppercase tracking-wide">Key Points</h4>
+            <div className="space-y-2">
+              {extendedPoints.map((point, index) => (
+                <p key={index} className="text-sm text-muted-foreground flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
+                  {point}
+                </p>
+              ))}
+            </div>
+          </motion.div>
         </div>
         
         <AnatomyImage 

@@ -5,6 +5,13 @@ import { LabelTag } from "@/components/presentation/LabelTag";
 import capsuleImage from "@/assets/joint-capsule.jpg";
 
 export const SlideCapsule = () => {
+  const extendedPoints = [
+    "The capsule is thin but strong",
+    "It encloses the posterior subtalar joint",
+    "The inner synovial membrane secretes synovial fluid",
+    "Helps maintain joint integrity while allowing mobility"
+  ];
+
   return (
     <SlideSection id="capsule">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -52,6 +59,21 @@ export const SlideCapsule = () => {
                 </p>
               </div>
             </AnimatedText>
+          </div>
+
+          {/* Extended Matter */}
+          <div className="mt-4 p-4 rounded-xl bg-muted/50 border border-border/50">
+            <h4 className="text-sm font-semibold text-foreground mb-3 uppercase tracking-wide">Key Points</h4>
+            <div className="space-y-2">
+              {extendedPoints.map((point, index) => (
+                <AnimatedText key={index} delay={0.5 + index * 0.1}>
+                  <p className="text-sm text-muted-foreground flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
+                    {point}
+                  </p>
+                </AnimatedText>
+              ))}
+            </div>
           </div>
         </div>
         

@@ -5,6 +5,13 @@ import { LabelTag } from "@/components/presentation/LabelTag";
 import jointImage from "@/assets/joint-crosssection.jpg";
 
 export const SlideJointType = () => {
+  const extendedPoints = [
+    "Classified as a plane synovial joint",
+    "Permits sliding and rotational movements rather than simple hinge motion",
+    "The synovial lining provides lubrication for smooth movement",
+    "Stability is achieved more by ligaments than by bony congruence"
+  ];
+
   return (
     <SlideSection id="joint-type">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -47,6 +54,21 @@ export const SlideJointType = () => {
                 </p>
               </div>
             </AnimatedText>
+          </div>
+
+          {/* Extended Matter */}
+          <div className="mt-4 p-4 rounded-xl bg-muted/50 border border-border/50">
+            <h4 className="text-sm font-semibold text-foreground mb-3 uppercase tracking-wide">Key Points</h4>
+            <div className="space-y-2">
+              {extendedPoints.map((point, index) => (
+                <AnimatedText key={index} delay={0.6 + index * 0.1}>
+                  <p className="text-sm text-muted-foreground flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
+                    {point}
+                  </p>
+                </AnimatedText>
+              ))}
+            </div>
           </div>
         </div>
         

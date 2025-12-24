@@ -18,6 +18,13 @@ export const SlideLigaments = () => {
     { name: "Posterior Talocalcaneal", key: false }
   ];
 
+  const extendedPoints = [
+    "Ligaments are the primary stabilizers of the subtalar joint",
+    "They prevent excessive inversion and eversion",
+    "Damage to these ligaments leads to instability and pain",
+    "Ligament integrity is crucial for normal foot mechanics"
+  ];
+
   return (
     <SlideSection id="ligaments" bgVariant="subtle">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -70,6 +77,23 @@ export const SlideLigaments = () => {
               </motion.div>
             ))}
           </div>
+
+          {/* Extended Matter */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.5, delay: 0.9 }}
+            className="mt-4 p-4 rounded-xl bg-card border border-border/50"
+          >
+            <div className="space-y-2">
+              {extendedPoints.map((point, index) => (
+                <p key={index} className="text-sm text-muted-foreground flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0" />
+                  {point}
+                </p>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </SlideSection>

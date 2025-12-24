@@ -16,6 +16,13 @@ export const SlideGait = () => {
     { phase: "Toe Off", role: "Joint inverts to create rigid lever" }
   ];
 
+  const extendedPoints = [
+    "During heel strike, the subtalar joint pronates to absorb shock",
+    "During push-off, it supinates to create a rigid lever",
+    "This transition improves walking efficiency",
+    "Loss of subtalar mobility alters normal gait patterns"
+  ];
+
   return (
     <SlideSection id="gait" bgVariant="subtle">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -86,6 +93,23 @@ export const SlideGait = () => {
                     <span className="text-muted-foreground ml-1">{item.role}</span>
                   </div>
                 </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Extended Matter */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.5, delay: 1.1 }}
+            className="mt-4 p-4 rounded-xl bg-card border border-border/50"
+          >
+            <div className="space-y-2">
+              {extendedPoints.map((point, index) => (
+                <p key={index} className="text-sm text-muted-foreground flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0" />
+                  {point}
+                </p>
               ))}
             </div>
           </motion.div>

@@ -5,6 +5,13 @@ import { LabelTag } from "@/components/presentation/LabelTag";
 import skeletonImage from "@/assets/skeleton-foot-glow.jpg";
 
 export const SlideIntroduction = () => {
+  const extendedPoints = [
+    "Lies between the talus and calcaneus, working closely with the ankle joint",
+    "Allows the foot to adapt to uneven surfaces while walking or running",
+    "Dysfunction directly affects gait efficiency and stability",
+    "Acts as a shock absorber during weight-bearing activities"
+  ];
+
   return (
     <SlideSection id="introduction">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -43,6 +50,21 @@ export const SlideIntroduction = () => {
                 Efficient gait mechanics
               </div>
             </AnimatedText>
+          </div>
+
+          {/* Extended Matter */}
+          <div className="mt-6 p-5 rounded-xl bg-muted/50 border border-border/50">
+            <h4 className="text-sm font-semibold text-foreground mb-3 uppercase tracking-wide">Key Points</h4>
+            <div className="space-y-2">
+              {extendedPoints.map((point, index) => (
+                <AnimatedText key={index} delay={0.7 + index * 0.1}>
+                  <p className="text-sm text-muted-foreground flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
+                    {point}
+                  </p>
+                </AnimatedText>
+              ))}
+            </div>
           </div>
         </div>
         
