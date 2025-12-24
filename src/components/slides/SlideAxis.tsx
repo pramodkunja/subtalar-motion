@@ -10,6 +10,13 @@ export const SlideAxis = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  const extendedPoints = [
+    "The subtalar joint has an oblique axis, not a straight one",
+    "This allows combined movements rather than pure rotation",
+    "The oblique orientation explains complex foot mechanics",
+    "Axis alignment varies slightly among individuals"
+  ];
+
   return (
     <SlideSection id="axis" bgVariant="subtle">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -63,6 +70,23 @@ export const SlideAxis = () => {
               with slight plantar/dorsiflexion components.
             </p>
           </AnimatedText>
+
+          {/* Extended Matter */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="mt-4 p-4 rounded-xl bg-card border border-border/50"
+          >
+            <div className="space-y-2">
+              {extendedPoints.map((point, index) => (
+                <p key={index} className="text-sm text-muted-foreground flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0" />
+                  {point}
+                </p>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </SlideSection>

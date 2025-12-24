@@ -19,6 +19,13 @@ export const SlideSummary = () => {
     { icon: "⚕️", text: "Clinically significant for foot pathology" }
   ];
 
+  const extendedPoints = [
+    "The subtalar joint is essential for functional mobility",
+    "It allows adaptability, balance, and efficient gait",
+    "Ligaments and muscles provide stability",
+    "Understanding this joint is crucial in clinical practice"
+  ];
+
   return (
     <SlideSection id="summary" bgVariant="subtle">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -55,11 +62,28 @@ export const SlideSummary = () => {
               </motion.div>
             ))}
           </div>
+
+          {/* Extended Matter */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.5, delay: 1.0 }}
+            className="mt-4 p-4 rounded-xl bg-card border border-border/50"
+          >
+            <div className="space-y-2">
+              {extendedPoints.map((point, index) => (
+                <p key={index} className="text-sm text-muted-foreground flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0" />
+                  {point}
+                </p>
+              ))}
+            </div>
+          </motion.div>
           
           <motion.div
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
             className="pt-6 text-center lg:text-left"
           >
             <p className="text-muted-foreground italic">

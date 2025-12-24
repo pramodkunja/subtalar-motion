@@ -10,6 +10,13 @@ export const SlideMovements = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  const extendedPoints = [
+    "Inversion: Sole turns inward",
+    "Eversion: Sole turns outward",
+    "These movements occur together with plantarflexion and dorsiflexion",
+    "Essential for balance on uneven surfaces"
+  ];
+
   return (
     <SlideSection id="movements">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -77,6 +84,24 @@ export const SlideMovements = () => {
               </div>
             </motion.div>
           </div>
+
+          {/* Extended Matter */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.5, delay: 0.7 }}
+            className="mt-4 p-4 rounded-xl bg-muted/50 border border-border/50"
+          >
+            <h4 className="text-sm font-semibold text-foreground mb-3 uppercase tracking-wide">Key Points</h4>
+            <div className="space-y-2">
+              {extendedPoints.map((point, index) => (
+                <p key={index} className="text-sm text-muted-foreground flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
+                  {point}
+                </p>
+              ))}
+            </div>
+          </motion.div>
         </div>
         
         <AnatomyImage 

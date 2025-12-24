@@ -23,6 +23,13 @@ export const SlideMuscles = () => {
     "Peroneus tertius"
   ];
 
+  const extendedPoints = [
+    "Invertors help maintain the medial arch",
+    "Evertors provide lateral stability",
+    "Muscle balance is crucial for joint health",
+    "Weakness can lead to deformities like flat foot"
+  ];
+
   return (
     <SlideSection id="muscles">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -90,6 +97,24 @@ export const SlideMuscles = () => {
               </ul>
             </motion.div>
           </div>
+
+          {/* Extended Matter */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.5, delay: 0.9 }}
+            className="mt-4 p-4 rounded-xl bg-muted/50 border border-border/50"
+          >
+            <h4 className="text-sm font-semibold text-foreground mb-3 uppercase tracking-wide">Key Points</h4>
+            <div className="space-y-2">
+              {extendedPoints.map((point, index) => (
+                <p key={index} className="text-sm text-muted-foreground flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
+                  {point}
+                </p>
+              ))}
+            </div>
+          </motion.div>
         </div>
         
         <AnatomyImage 

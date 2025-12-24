@@ -6,6 +6,12 @@ export const SlideHero = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
+  const extendedPoints = [
+    "A key component of the hindfoot complex",
+    "Major role in posture, balance, and locomotion",
+    "Often called the \"foundation joint\" for functional foot movement"
+  ];
+
   return (
     <section
       ref={ref}
@@ -52,16 +58,36 @@ export const SlideHero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="text-xl md:text-2xl text-primary-foreground/80 font-light tracking-wide"
+          className="text-xl md:text-2xl text-primary-foreground/80 font-light tracking-wide mb-8"
         >
           Anatomy • Movement • Clinical Relevance
         </motion.p>
 
+        {/* Extended Matter */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.8, delay: 1.1 }}
+          className="space-y-3 max-w-2xl mx-auto"
+        >
+          {extendedPoints.map((point, index) => (
+            <motion.p
+              key={index}
+              initial={{ opacity: 0, y: 10 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+              transition={{ duration: 0.5, delay: 1.2 + index * 0.15 }}
+              className="text-primary-foreground/70 text-sm md:text-base"
+            >
+              {point}
+            </motion.p>
+          ))}
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.8, delay: 1.3 }}
-          className="mt-16"
+          transition={{ duration: 0.8, delay: 1.8 }}
+          className="mt-12"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}
