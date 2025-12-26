@@ -13,13 +13,14 @@ import { SlideGait } from "@/components/slides/SlideGait";
 import { SlideMuscles } from "@/components/slides/SlideMuscles";
 import { SlideBloodNerve } from "@/components/slides/SlideBloodNerve";
 import { SlideClinical } from "@/components/slides/SlideClinical";
+import { SlideTalocalcaneoNavicular } from "@/components/slides/SlideTalocalcaneoNavicular";
 import { SlideSummary } from "@/components/slides/SlideSummary";
 import { NavigationDots } from "@/components/presentation/NavigationDots";
 
 const slideIds = [
   "hero", "introduction", "bones", "joint-type", "facets",
   "capsule", "ligaments", "sinus-tarsi", "axis", "movements",
-  "gait", "muscles", "blood-nerve", "clinical", "summary"
+  "gait", "muscles", "blood-nerve", "clinical", "talocalcaneo-navicular", "summary"
 ];
 
 const Index = () => {
@@ -71,6 +72,7 @@ const Index = () => {
       <SlideMuscles />
       <SlideBloodNerve />
       <SlideClinical />
+      <SlideTalocalcaneoNavicular />
       <SlideSummary />
       
       {/* Footer */}
